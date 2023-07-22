@@ -43,8 +43,8 @@ public static class Program
     {
         var serviceContainer = new ServiceContainer();
         
-        //serviceContainer.AddSingleton<ISingletonService, SingletonService>();
-        serviceContainer.AddSingleton<IService>(() => new Service(new SingletonService()));
+        serviceContainer.AddSingleton<ISingletonService, SingletonService>();
+        serviceContainer.AddService<IService, Service>();
 
         var service = serviceContainer.GetService<IService>();
 
@@ -53,7 +53,7 @@ public static class Program
         await Task.Delay(2000);
         
         service = serviceContainer.GetService<IService>();
-        
+
         Console.WriteLine(service?.GetCreationDateTime());
     }
 }

@@ -38,10 +38,9 @@ public class ServiceContainer
     {
         if (_serviceDictionary.TryGetValue(type, out var creator))
             return creator!();
-        else if (_singletonDictionary.TryGetValue(type, out creator))
+        if (_singletonDictionary.TryGetValue(type, out creator))
             return creator!();
-        else
-            throw new Exception("No registration for " + type);
+        throw new Exception("No registration for " + type);
     }
 
     private object? CreateServiceInstance<T>() where T : class
