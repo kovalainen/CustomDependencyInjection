@@ -10,6 +10,17 @@ public class ServiceContainer
         _serviceDictionary.Add(typeof(TService), CreateServiceInstance<TImpl>);
     }
 
+    public void AddService<TService>(Func<TService> factory) where TService : class
+    {
+        _serviceDictionary.Add(typeof(TService), factory);
+    }
+    
+    public void AddSingleton<TService>(Func<TService> factory) where TService : class
+    {
+        var lazy = new Lazy<TService?>(factory);
+        _singletonDictionary.Add(typeof(TService), () => lazy.Value);
+    }
+    
     public void AddSingleton<TService, TImpl>() where TImpl : class, TService
     {
         var lazy = new Lazy<TImpl?>(() => CreateSingletonInstance<TImpl>() as TImpl);

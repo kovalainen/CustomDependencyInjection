@@ -43,8 +43,8 @@ public static class Program
     {
         var serviceContainer = new ServiceContainer();
         
-        serviceContainer.AddService<IService, Service>();
-        serviceContainer.AddSingleton<ISingletonService, SingletonService>();
+        //serviceContainer.AddSingleton<ISingletonService, SingletonService>();
+        serviceContainer.AddSingleton<IService>(() => new Service(new SingletonService()));
 
         var service = serviceContainer.GetService<IService>();
 
