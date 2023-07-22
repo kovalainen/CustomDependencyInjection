@@ -1,0 +1,15 @@
+C:\Users\bohdan.kovalevskyi\RiderProjects\CustomDependencyInjection\CustomDependencyInjection\bin\Debug\net6.0\CustomDependencyInjection.exe
+C:\Users\bohdan.kovalevskyi\RiderProjects\CustomDependencyInjection\CustomDependencyInjection\bin\Debug\net6.0\CustomDependencyInjection.deps.json
+C:\Users\bohdan.kovalevskyi\RiderProjects\CustomDependencyInjection\CustomDependencyInjection\bin\Debug\net6.0\CustomDependencyInjection.runtimeconfig.json
+C:\Users\bohdan.kovalevskyi\RiderProjects\CustomDependencyInjection\CustomDependencyInjection\bin\Debug\net6.0\CustomDependencyInjection.dll
+C:\Users\bohdan.kovalevskyi\RiderProjects\CustomDependencyInjection\CustomDependencyInjection\bin\Debug\net6.0\CustomDependencyInjection.pdb
+C:\Users\bohdan.kovalevskyi\RiderProjects\CustomDependencyInjection\CustomDependencyInjection\obj\Debug\net6.0\CustomDependencyInjection.csproj.AssemblyReference.cache
+C:\Users\bohdan.kovalevskyi\RiderProjects\CustomDependencyInjection\CustomDependencyInjection\obj\Debug\net6.0\CustomDependencyInjection.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bohdan.kovalevskyi\RiderProjects\CustomDependencyInjection\CustomDependencyInjection\obj\Debug\net6.0\CustomDependencyInjection.AssemblyInfoInputs.cache
+C:\Users\bohdan.kovalevskyi\RiderProjects\CustomDependencyInjection\CustomDependencyInjection\obj\Debug\net6.0\CustomDependencyInjection.AssemblyInfo.cs
+C:\Users\bohdan.kovalevskyi\RiderProjects\CustomDependencyInjection\CustomDependencyInjection\obj\Debug\net6.0\CustomDependencyInjection.csproj.CoreCompileInputs.cache
+C:\Users\bohdan.kovalevskyi\RiderProjects\CustomDependencyInjection\CustomDependencyInjection\obj\Debug\net6.0\CustomDependencyInjection.dll
+C:\Users\bohdan.kovalevskyi\RiderProjects\CustomDependencyInjection\CustomDependencyInjection\obj\Debug\net6.0\refint\CustomDependencyInjection.dll
+C:\Users\bohdan.kovalevskyi\RiderProjects\CustomDependencyInjection\CustomDependencyInjection\obj\Debug\net6.0\CustomDependencyInjection.pdb
+C:\Users\bohdan.kovalevskyi\RiderProjects\CustomDependencyInjection\CustomDependencyInjection\obj\Debug\net6.0\CustomDependencyInjection.genruntimeconfig.cache
+C:\Users\bohdan.kovalevskyi\RiderProjects\CustomDependencyInjection\CustomDependencyInjection\obj\Debug\net6.0\ref\CustomDependencyInjection.dll
