@@ -3,7 +3,7 @@
 public class ServiceContainer
 {
     private readonly Dictionary<Type, Func<object>?> _serviceDictionary = new();
-    private readonly Dictionary<Type, object> _singletonDictionary = new();
+    private readonly Dictionary<Type, Func<object>?> _singletonDictionary = new();
 
     public void AddService<TService, TImpl>() where TImpl : class, TService
     {
@@ -12,8 +12,8 @@ public class ServiceContainer
 
     public void AddSingleton<TService, TImpl>() where TImpl : class, TService
     {
-        var instance = CreateSingletonInstance<TImpl>();
-        _singletonDictionary.Add(typeof(TService), instance);
+        var lazy = new Lazy<TImpl?>(() => CreateSingletonInstance<TImpl>() as TImpl);
+        _singletonDictionary.Add(typeof(TService), () => lazy.Value);
     }
 
     public T? GetService<T>() where T : class
@@ -27,8 +27,8 @@ public class ServiceContainer
     {
         if (_serviceDictionary.TryGetValue(type, out var creator))
             return creator();
-        else if (_singletonDictionary.TryGetValue(type, out var obj))
-            return obj;
+        else if (_singletonDictionary.TryGetValue(type, out creator))
+            return creator();
         else
             throw new Exception("No registration for " + type);
     }
@@ -62,12 +62,12 @@ public class ServiceContainer
             .GetParameters()
             .Select(p =>
             {
-                if (_singletonDictionary.TryGetValue(p.ParameterType, out var obj))
+                if (_singletonDictionary.TryGetValue(p.ParameterType, out var creator))
                 {
-                    return obj;
+                    return creator();
                 }
 
-                return CreateSingletonInstance(p.ParameterType);
+                throw new Exception("No registration for " + type);
             })
             .ToArray();
 
