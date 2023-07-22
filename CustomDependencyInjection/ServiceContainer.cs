@@ -51,11 +51,6 @@ public class ServiceContainer
     {
         var type = typeof(T);
 
-        return CreateSingletonInstance(type);
-    }
-    
-    private object CreateSingletonInstance(Type type)
-    {
         var ctor = type.GetConstructors().Single();
 
         var dependencies = ctor
