@@ -2,8 +2,8 @@
 
 public class ServiceContainer
 {
-    private readonly Dictionary<Type, Func<object>?> _serviceDictionary = new();
-    private readonly Dictionary<Type, Func<object>?> _singletonDictionary = new();
+    private readonly Dictionary<Type, Func<object?>?> _serviceDictionary = new();
+    private readonly Dictionary<Type, Func<object?>?> _singletonDictionary = new();
 
     public void AddService<TService, TImpl>() where TImpl : class, TService
     {
@@ -34,17 +34,17 @@ public class ServiceContainer
         return GetService(type) as T;
     }
 
-    private object GetService(Type type)
+    private object? GetService(Type type)
     {
         if (_serviceDictionary.TryGetValue(type, out var creator))
-            return creator();
+            return creator!();
         else if (_singletonDictionary.TryGetValue(type, out creator))
-            return creator();
+            return creator!();
         else
             throw new Exception("No registration for " + type);
     }
 
-    private object CreateServiceInstance<T>() where T : class
+    private object? CreateServiceInstance<T>() where T : class
     {
         var type = typeof(T);
 
@@ -58,7 +58,7 @@ public class ServiceContainer
         return Activator.CreateInstance(type, dependencies);
     }
 
-    private object CreateSingletonInstance<T>() where T : class
+    private object? CreateSingletonInstance<T>() where T : class
     {
         var type = typeof(T);
 
@@ -70,7 +70,7 @@ public class ServiceContainer
             {
                 if (_singletonDictionary.TryGetValue(p.ParameterType, out var creator))
                 {
-                    return creator();
+                    return creator!();
                 }
 
                 throw new Exception("No registration for " + type);
