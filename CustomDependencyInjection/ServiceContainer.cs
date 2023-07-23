@@ -36,10 +36,10 @@ public class ServiceContainer
 
     private object? GetService(Type type)
     {
-        if (_serviceDictionary.TryGetValue(type, out var creator))
-            return creator!();
-        if (_singletonDictionary.TryGetValue(type, out creator))
-            return creator!();
+        if (_serviceDictionary.TryGetValue(type, out var factory))
+            return factory!();
+        if (_singletonDictionary.TryGetValue(type, out factory))
+            return factory!();
         throw new Exception("No registration for " + type);
     }
 
@@ -67,9 +67,9 @@ public class ServiceContainer
             .GetParameters()
             .Select(p =>
             {
-                if (_singletonDictionary.TryGetValue(p.ParameterType, out var creator))
+                if (_singletonDictionary.TryGetValue(p.ParameterType, out var factory))
                 {
-                    return creator!();
+                    return factory!();
                 }
 
                 throw new Exception("No registration for " + type);
